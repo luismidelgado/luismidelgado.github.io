@@ -1,0 +1,44 @@
+.navbar {
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+}
+
+.bd-navbar {
+    background-color: #563d7c;
+}
+
+.bd-navbar .navbar-nav .nav-link {
+    padding-right: .65rem;
+    padding-left: .65rem;
+    color: #cbbde2;
+}
+
+.bd-navbar .navbar-nav .nav-link.active,
+.bd-navbar .navbar-nav .nav-link:hover {
+    color: #fff;
+    background-color: transparent;
+}
+
+.bd-navbar .navbar-nav .nav-link.active {
+    font-weight: 600;
+}
+
+.bd-toc {
+    font-size: .875rem;
+    top: 3rem;
+    right: 0;
+    position: fixed;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    height: calc(100vh - 4rem);
+    overflow-y: auto;
+}
+
+.section-nav {
+    padding-left: 0;
+    border-left: 1px solid #eee;
+}
+
+.section-nav ul {
+    padding-left: 1rem;
+}
