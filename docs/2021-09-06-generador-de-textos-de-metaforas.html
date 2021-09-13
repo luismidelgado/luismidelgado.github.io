@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8">
-    <title>Índice de artículos</title>
+    <title>Generador de Textos</title>
     <meta name="generator" content="pandoc">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
@@ -29,7 +29,7 @@
 <div class="topnav">
     <a class="active" href="./index.html">Inicio</a>
     <a class="" href="#news">News</a>
-    <a class="" href="#contact">News</a>
+    <a class="" href="#contact">About</a>
     <a class="" href="#about">About</a>
     </div>
   </nav>
@@ -38,35 +38,28 @@
       <h2 class="project-name">Ideas y Pensamientos</h2>
       <h3 class="project-tagline">Poner negro sobre blanco los gublins de mi cabeza</h3>
       <a href="https://github.com/luismidelgado/cancan-theme" class="btn">Suscríbete</a>
-      <div class="published" Published: <b>Publicado el día:       2021-09-13
+      <div class="published" Published: <b>Publicado el día:       2021-09-06
       </b></div>
     </section>
     <section class="main-content">
     
-    <div align="center"><h1>Índice de artículos</h1></div>
+    <div align="center"><h1>Generador de Textos</h1></div>
+              <img src="https://i.imgur.com/kwJZrQ4.jpeg" alt="Generador de Textos" style="width:50%;display: block;margin-left: auto;margin-right: auto;">     
        
         <!-- anything you put here will go before the opening <body> tag
              (ie: before the README’s contents) Markdown will become HTML  -->
-        <p>We know that jars are chartered pair of pantses. They were lost without the unmasked zipper that composed their frown. This is not to discredit the idea that one cannot separate bathtubs from onward hippopotamuses. To be more specific, a father is an underwear’s staircase. Colloid raincoats show us how bassoons can be representatives.</p>
-        <h2 id="2021">2021</h2>
-        <h3 id="mes-09">Mes: 09</h3>
-        <ul>
-        <li>
-        <a href="2021-09-10-como-generar-un-post-automatico-con-cabecera.html">Cómo generar un post automático con cabecera</a>
-        </li>
-        <li>
-        <a href="2021-09-06-generador-de-textos-de-metaforas.html">Generador de textos de metáforas</a>
-        </li>
-        <li>
-        <a href="2021-09-04-generador-de-textos-metaphorpsum.html">Generador de textos metaphorpsum</a>
-        </li>
-        </ul>
-        <h3 id="mes-02">Mes: 02</h3>
-        <ul>
-        <li>
-        <a href="2021-02-22-estructura-de-los-articulos-de-github.html">Estructura de los artículos de github</a>
-        </li>
-        </ul>
+        <p>Un sabio, aunque quizás ligeramente pedante, generador de metáfora.</p>
+        <p>Esto es lo que pone en su página web la herramienta que te presento a continuación, un generador de metáforas en inglés que podrás utilizar en tus scripts de bash.</p>
+        <p>Podremos obtener parrafos mandando una petición vía URL. La url quedaría de la siguiente manera:</p>
+        <pre><code>metaphorpsum.com/paragraphs/&lt;numberOfParagraphs&gt;
+        metaphorpsum.com/paragraphs/&lt;numberOfParagraphs&gt;/&lt;numberOfSentences&gt;</code></pre>
+        <p><code>&lt;numberOfParagraphs&gt;</code> es el número de parrafos que queremos y <code>&lt;numberOfSentences&gt;</code> es el número de frases que queremos. El único límite es que no podemos pasar de 20 párrafos y 50 frases.</p>
+        <p>También podemos utilizar el parámetro <code>p=true</code> para obtener en cara parrafo una etiqueta <code>&lt;p&gt;</code>.</p>
+        <p>Así podríamos obtener un parrafo en bash con el siguiente comando:</p>
+        <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="va">intro_text=$(</span><span class="ex">curl</span> -s http://metaphorpsum.com/paragraphs/1<span class="va">)</span></span></code></pre></div>
+        <p>Y para rizar el rizo si tenemos tiempo podríamos implementar un generador tipo <code>lore ipsum</code> pero con frases de chiquito de la calzada.</p>
+        <p>El comando en bash sería:</p>
+        <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="ex">curl</span> -s https://chiquito-ipsum.herokuapp.com/1</span></code></pre></div>
         <!-- anything you put here will go before the closing </body> tag
              (ie: after the README’s contents) Markdown will become HTML  -->
         <hr />

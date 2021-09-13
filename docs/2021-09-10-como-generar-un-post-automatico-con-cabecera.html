@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <title>Cómo generar un post automático con cabecera</title>
+    <meta name="generator" content="pandoc">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="author" content="Luis Miguel">
+    <meta name="description" content="Escribir solo por el hecho de organizar mis ideas, lo que surga dependerá de otros.">
+    <meta name="keywords" content="your, keywords list, for, search engines, indexing">
+    <meta property="og:author" content="" />
+    <meta property="og:title" content="" />
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/cayman.css">
+    <link rel="stylesheet" href="css/highlight.css">
+    <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- Bootstrap: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/mi_navbar.css">
+    <!-- anything you put here will go verbatim in the header section
+         Useful for adding javascripts, custom metadata, and so on... -->
+  </head>
+  <body>
+  <nav>
+<div class="topnav">
+    <a class="active" href="./index.html">Inicio</a>
+    <a class="" href="#news">News</a>
+    <a class="" href="#contact">About</a>
+    <a class="" href="#about">About</a>
+    </div>
+  </nav>
+
+    <section class="page-header">
+      <h2 class="project-name">Ideas y Pensamientos</h2>
+      <h3 class="project-tagline">Poner negro sobre blanco los gublins de mi cabeza</h3>
+      <a href="https://github.com/luismidelgado/cancan-theme" class="btn">Suscríbete</a>
+      <div class="published" Published: <b>Publicado el día:       2021-09-10
+      </b></div>
+    </section>
+    <section class="main-content">
+    
+    <div align="center"><h1>Cómo generar un post automático con cabecera</h1></div>
+          <a href="https://github.com/luismidelgado/cancan-theme">Blog Posts</a>
+ 
+        <!-- anything you put here will go before the opening <body> tag
+             (ie: before the README’s contents) Markdown will become HTML  -->
+        <p>Generar artículo para el blog estático con cabecera yaml.</p>
+        <p>Este es el script en bash:</p>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">#!/bin/bash</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="bu">read</span> -p <span class="st">&quot;Enter the title: &quot;</span> <span class="va">title</span> </span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="va">Title=</span><span class="kw">`</span><span class="bu">echo</span> <span class="va">$title</span> <span class="kw">|</span> <span class="fu">tr</span> -d <span class="st">&#39;[:punct:]&#39;</span><span class="kw">`</span></span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">for</span> <span class="ex">word</span> in <span class="va">$Title</span></span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="kw">do</span></span>
+        <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>  <span class="va">dashedTitle=${dashedTitle}</span>-<span class="va">${word}</span></span>
+        <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="kw">done</span></span>
+        <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="va">filename=</span><span class="st">&quot;</span><span class="kw">`</span><span class="fu">date</span> +%Y-%m-%d<span class="kw">`</span><span class="va">${dashedTitle}</span><span class="st">.md&quot;</span></span>
+        <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="fu">touch</span> <span class="va">$filename</span></span>
+        <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;---&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$filename</span></span>
+        <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;published: true&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$filename</span></span>
+        <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;layout: post&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$filename</span></span>
+        <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;title: </span><span class="dt">\&quot;</span><span class="va">${title}</span><span class="dt">\&quot;</span><span class="st">&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$filename</span></span>
+        <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;author: Yu&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$filename</span></span>
+        <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;categories:&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$filename</span></span>
+        <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;tags:&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$filename</span></span>
+        <span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;-&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$filename</span></span>
+        <span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;---&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$filename</span></span>
+        <span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;&quot;</span> <span class="op">&gt;&gt;</span> <span class="va">$filename</span></span></code></pre></div>
+        <!-- anything you put here will go before the closing </body> tag
+             (ie: after the README’s contents) Markdown will become HTML  -->
+        <hr />
+        <h2 id="enhorabuena-por-leer-el-artículo">Enhorabuena por leer el artículo</h2>
+        <p>Este proyecto es un aprendizaje de como crear una web estática a partir de archivos markdown y donde puedo hacer experimentos. Esto me servirá para crear grandes artículos en mi blog <a href="https://www.kacharreando.com">Kacharreando.com</a>, donde puedes aprender a realizar proyectos por ti mismo.</p>
+        <p>¡Te espero!</p>
+    
+    </section>
+    <footer class="site-footer">
+      <span class="site-footer-owner">
+      <div align="center" class="text-muted">
+      <!-- Update licences -->
+      Content in <a href="https://luismidelgado.github.io/">luismidelgado.github.io</a> is available under <a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener nofollow">CC BY-SA 3.0</a> |  Sourcecode licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" rel="noopener nofollow">GPL-3.0</a> <br /> <span class="site-footer-credits">This page was generated with <a href="https://www.pandoc.org" target="_blank" rel="noopener nofollow">Pandoc</a> inspired in <a href="https://github.com/jasonlong/cayman-theme" target="_blank" rel="noopener nofollow">Cayman theme</a>. <br /> <!-- Update copyright --> © Luis Miguel Delgado 2021 - <a href="https://twitter.com/@luismidelgado" class="twitter-follow-button" >Follow @luismidelgado on Twitter</a>
+        </div>
+        </span>
+      </footer>
+
+  </body>
+</html>
